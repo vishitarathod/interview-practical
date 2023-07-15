@@ -9,7 +9,7 @@ export const generateAccessToken = async (userId) => {
     });
     return token;
   } catch (error) {
-    console.log(error);
+    throw new Error(error);
   }
 };
 
