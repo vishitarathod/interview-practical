@@ -4,9 +4,8 @@ import Post from "../models/post.js";
 class PostController {
   getAllPost = async (req, res) => {
     try {
-      const { userId } = req.userId;
-
-      const isUser = await User.findOne({ id: userId });
+      const userId = req.userId;
+      const isUser = await User.findOne({ _id: userId });
       if (!isUser) {
         return res.status(404).json({ message: "User Not Found" });
       }
@@ -19,10 +18,10 @@ class PostController {
 
   addPost = async (req, res) => {
     try {
-      const { userId } = req.userId;
+      const userId = req.userId;
       const { title, content, authInfo } = req.body;
 
-      const isUser = await User.findOne({ id: userId });
+      const isUser = await User.findOne({ _id: userId });
       if (!isUser) {
         return res.status(404).json({ message: "User Not Found" });
       }
@@ -30,7 +29,7 @@ class PostController {
         title,
         content,
         authInfo,
-        userId
+        userId,
       });
       await newPost.save();
       res.status(200).json("Post added sucessfully");

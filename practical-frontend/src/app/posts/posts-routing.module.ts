@@ -10,7 +10,7 @@ const routes: Routes = [
     redirectTo: 'list'
   }, {
     path: 'create',
-    component: PostCreateComponent
+    component: PostCreateComponent,
   },
   {
     path: 'list',
