@@ -13,7 +13,7 @@ const corsOptions = {
 };
 
 mongoose
-  .connect("mongodb://localhost:27017/mydatabase", {
+  .connect(process.env.CONNECTION_STRING, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

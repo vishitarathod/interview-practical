@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
       const password = this.registerForm.get('password')?.value;
       this.http.post(`${environment.baseURL}/register`, { userName, password }).subscribe(
         (data: any) => {
-          this.toastr.success('User Register successfully!', 'Success');
+          this.toastr.success('User Register successfully!');
           this.route.navigate(['/auth']);
         },
         (error: any) => {
