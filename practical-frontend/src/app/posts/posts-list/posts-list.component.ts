@@ -1,4 +1,3 @@
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';

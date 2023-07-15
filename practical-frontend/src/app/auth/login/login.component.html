@@ -6,7 +6,7 @@
           class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="loginForm" (ngSubmit)="onLoginFormSubmit()">
           <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
             <p class="lead fw-bold mb-0 me-3">Login</p>
           </div>
@@ -14,8 +14,8 @@
             <label>User Name</label>
             <input type="email"  formControlName="userName" class="form-control" placeholder="Enter User Name">
             <div *ngIf="loginForm.get('userName')?.invalid && loginForm.get('userName')?.touched">
-              <div class="text-danger" *ngIf="loginForm.get('userName')?.hasError('required')">userName is required.</div>
-              <div class="text-danger" *ngIf="loginForm.get('userName')?.hasError('userName') || loginForm.get('userName')?.hasError('pattern')">Username must be valid email address.</div>
+              <div class="text-danger" *ngIf="loginForm.get('userName')?.hasError('required')">User Name is required.</div>
+              <div class="text-danger" *ngIf="loginForm.get('userName')?.hasError('userName') || loginForm.get('userName')?.hasError('pattern')">User Name must be valid email address.</div>
             </div>
           </div>
           <div class="form-group">

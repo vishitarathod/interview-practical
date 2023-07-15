@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(4)]],
     });
   }
-  onSubmit() {
+  onLoginFormSubmit() {
     if (this.loginForm.valid) {
       const userName = this.loginForm.get('userName')?.value;
       const password = this.loginForm.get('password')?.value;

@@ -33,7 +33,7 @@ export class PostCreateComponent implements OnInit {
           this.postCreateForm.reset();
         },
         (error: any) => {
-          this.toastr.error(error?.message);
+          this.toastr.error(error.error?.message);
         }
       )
     }

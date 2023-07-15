@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(4)]],
     });
   }
-  onSubmit() {
+  onRegisterFormSubmit() {
     if (this.registerForm.valid) {
       const userName = this.registerForm.get('userName')?.value;
       const password = this.registerForm.get('password')?.value;
