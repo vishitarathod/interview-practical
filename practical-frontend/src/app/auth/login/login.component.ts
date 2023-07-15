@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private route: Router, private formBuilder: FormBuilder,private http : HttpClient,private toastr: ToastrService) { }
+  constructor(private route: Router, private formBuilder: FormBuilder, private http: HttpClient, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -26,13 +26,14 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       const userName = this.loginForm.get('userName')?.value;
       const password = this.loginForm.get('password')?.value;
-      this.http.post(`${environment.baseURL}/api/login`,{userName,password}).subscribe(
+      this.http.post(`${environment.baseURL}/login`, { userName, password }).subscribe(
         (data: any) => {
+          localStorage.setItem("token", data.accessToken);
           this.toastr.success('Login successfully!');
           this.route.navigate(['/post']);
         },
         (error: any) => {
-          this.toastr.error(error.message);
+          this.toastr.error(error.error.message);
         }
       )
     }
